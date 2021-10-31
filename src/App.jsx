@@ -2,11 +2,12 @@ import React from "react";
 import {
   Typography,
   AppBar,
+  Button,
   Card,
   CardAction,
   CardContent,
   CardMedia,
-  CssBaseLine,
+  CssBaseline,
   Grid,
   Toolbar,
   Container,
@@ -16,7 +17,7 @@ import { PhotoCamera } from "@material-ui/icons";
 const App = () => {
   return (
     <>
-      <CssBaseLine />
+      <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <PhotoCamera />
@@ -39,6 +40,20 @@ const App = () => {
               sentence as long as posible so we can see how it looks on the
               screen.
             </Typography>
+            <div>
+              <Grid Container spacing={2} align="center">
+                <Grid item style={{padding:'none'}} style={{backgroundColor:'red'}}>
+                  <Button variant="contained" color="primary">
+                    See Photos
+                  </Button>
+                </Grid>
+                <Grid item style={{padding:'none'}}>
+                  <Button variant="outlined" color="primary">
+                    Secondary Action
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
           </Container>
         </div>
       </main>
