@@ -4,7 +4,7 @@ import {
   AppBar,
   Button,
   Card,
-  CardAction,
+  CardActions,
   CardContent,
   CardMedia,
   CssBaseline,
@@ -13,19 +13,25 @@ import {
   Container,
 } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
+import useStyles from "./styles";
+
 
 const App = () => {
+  const classes = useStyles();
+
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
     <>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <PhotoCamera />
+          <PhotoCamera className={classes.icons}/>
           <Typography variant="h6">Photo Album</Typography>
         </Toolbar>
       </AppBar>
       <main>
-        <div>
+        <div className={classes.containers}>
           <Container maxWidth="sm">
             <Typography
               variant="h2"
@@ -33,21 +39,21 @@ const App = () => {
               color="textPrimary"
               gutterBottom
             >
-              Photo Albom
+              Photo Album
             </Typography>
             <Typography variant="h5" color="textSecondary" align="center">
-              Hello evaryone! This is a Photo Albom, I am trying to make this
+              Hello evaryone! This is a Photo Album, I am trying to make this
               sentence as long as posible so we can see how it looks on the
               screen.
             </Typography>
-            <div>
-              <Grid Container spacing={2} align="center">
-                <Grid item style={{padding:'none'}} style={{backgroundColor:'red'}}>
+            <div className={classes.buttons}>
+              <Grid container  spacing={2} justifyContent='center' >
+                <Grid  item >
                   <Button variant="contained" color="primary">
-                    See Photos
+                    Main call to Action 
                   </Button>
                 </Grid>
-                <Grid item style={{padding:'none'}}>
+                <Grid item >
                   <Button variant="outlined" color="primary">
                     Secondary Action
                   </Button>
@@ -56,7 +62,43 @@ const App = () => {
             </div>
           </Container>
         </div>
+        <Container className={classes.cardGrid} maxWith='md'>
+          <Grid container spacing={4}>
+            {cards.map((card)=> ( 
+            <Grid item key={card} xm={12} sm={6} md={4} >
+              <Card className={classes.card}>
+                <CardMedia 
+                className={classes.cardMedia}
+                image='https:/source.unsplash.com/random'
+                title='Image title'
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterButtom variant='h5'>
+                    Heading 
+                  </Typography>
+                  <Typography color='textSecondary' >
+                    This is a media card, You can use this section to describe your content.
+                  </Typography>
+                </CardContent>
+                <CardActions >
+                  <Button size='small' colore='primary'>View</Button>
+                  <div className={classes.grow}/>
+                  <Button size='small' colore='primary'>Edit</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            ))}
+          </Grid>
+        </Container>
       </main>
+      <footer className={classes.footer}>
+              <Typography variant='h6' align='center' gutterBottom>
+                Footer
+              </Typography> 
+              <Typography variant='subtitle1' align='center' color='textSecondary'>
+                Somethig here to give the footer a purpose!
+              </Typography>
+      </footer>
     </>
   );
 };

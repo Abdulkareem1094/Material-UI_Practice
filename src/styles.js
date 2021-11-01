@@ -1,0 +1,37 @@
+import {makeStyles} from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme)=>({
+    containers:{
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(8, 0, 6),
+    },
+    icons:{
+        marginRight:"20px"
+    },
+    buttons:{
+        marginTop:'40px'
+    },
+    cardGrid:{
+        padding:'20px 0'
+    },
+    card:{
+        height:'100%',
+        display:'flex',
+        flexDirection:'column'
+    },
+    cardMedia:{
+        paddingTop: '56.25%' // 16:9
+    },
+    cardContent:{ 
+        flexGrow:'1'
+    },
+    footer:{
+        padding:'50px 0',
+        backgroundColor:'#ddd'
+    },
+    grow:{
+        flexGrow: 1
+    },
+}));
+
+export default useStyles;
